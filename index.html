@@ -2,32 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rider Monitoring Dashboard</title>
-  <link rel="stylesheet" href="style.css"/>
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Bike Monitoring Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
 </head>
-<body>
-  <header>
-    <h1>Rider Monitoring Dashboard</h1>
-  </header>
+<body class="bg-gray-900 text-gray-100 font-sans">
+  <!-- Navbar -->
+  <nav class="bg-gray-800 shadow-lg p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-green-400">E-Bike Dashboard</h1>
+    <a href="#" class="hover:text-green-300 transition">Settings</a>
+  </nav>
 
-  <main>
-    <section id="map-section">
-      <h2>Live Location</h2>
-      <div id="map"></div>
-    </section>
+  <!-- Hero Section -->
+  <section class="text-center my-6">
+    <h2 class="text-3xl font-semibold">Live Monitoring</h2>
+    <p class="text-gray-400">Track your bike's status and location in real-time</p>
+  </section>
 
-    <section id="helmet-section">
-      <h2>Helmet Detection</h2>
-      <div id="helmet-status">Loading...</div>
-    </section>
-  </main>
+  <!-- Main Grid -->
+  <div class="grid md:grid-cols-2 gap-6 px-6">
+    <!-- Map Card -->
+    <div class="bg-gray-800 rounded-2xl p-4 shadow-lg">
+      <h3 class="text-xl font-semibold mb-2">GPS Location</h3>
+      <div id="map" class="rounded-xl w-full h-80"></div>
+    </div>
 
-  <footer>
-    <p>&copy; 2025 Rider Safety System</p>
+    <!-- Helmet Status -->
+    <div class="bg-gray-800 rounded-2xl p-4 shadow-lg flex flex-col justify-center items-center">
+      <h3 class="text-xl font-semibold mb-4">Helmet Detection</h3>
+      <div id="helmet-status" class="text-2xl font-bold text-yellow-400 animate-pulse">Checking...</div>
+    </div>
+  </div>
+
+  <!-- Additional Parameters -->
+  <section class="mt-8 px-6">
+    <h3 class="text-2xl font-semibold mb-4">Additional Parameters</h3>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="bg-gray-800 p-4 rounded-xl shadow hover:shadow-green-400 transition">
+        <h4 class="text-lg font-bold">Battery Level</h4>
+        <p id="battery" class="text-green-400">80%</p>
+      </div>
+      <div class="bg-gray-800 p-4 rounded-xl shadow hover:shadow-green-400 transition">
+        <h4 class="text-lg font-bold">Speed</h4>
+        <p id="speed" class="text-blue-400">35 km/h</p>
+      </div>
+      <div class="bg-gray-800 p-4 rounded-xl shadow hover:shadow-green-400 transition">
+        <h4 class="text-lg font-bold">Temperature</h4>
+        <p id="temp" class="text-red-400">32°C</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 mt-10 text-gray-500">
+    © 2025 E-Bike Project • Built with 💚 by Your Team
   </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
+
